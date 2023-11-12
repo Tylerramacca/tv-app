@@ -32,6 +32,15 @@ export class TvApp extends LitElement {
         display: block;
         margin: 16px;
         padding: 16px;
+        border: solid;
+      }
+
+      .course-topics{
+        display: flex;
+        height: 680px;
+        width: 150px;
+        flex-direction: column;
+        border: solid;
       }
       `
     ];
@@ -40,6 +49,8 @@ export class TvApp extends LitElement {
   render() {
     return html`
       <h2>${this.name}</h2>
+      <div class = "container">
+        <div class = "course-topics">
       ${
         this.listings.map(
           (item) => html`
@@ -52,6 +63,17 @@ export class TvApp extends LitElement {
           `
         )
       }
+       </div>
+       
+        <div class = "content-box">
+
+          <div class = "active-page">
+
+          </div>
+
+        </div>
+
+      </div>
       <div>
         <!-- video -->
         <!-- discord / chat - optional -->
