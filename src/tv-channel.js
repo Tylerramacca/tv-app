@@ -7,6 +7,7 @@ export class TvChannel extends LitElement {
     super();
     this.title = '';
     this.presenter = '';
+    this.id = '';
   }
   // convention I enjoy using to define the tag's name
   static get tag() {
@@ -17,6 +18,7 @@ export class TvChannel extends LitElement {
     return {
       title: { type: String },
       presenter: { type: String },
+      id: { type: String }
     };
   }
   // LitElement convention for applying styles JUST to our element
@@ -25,28 +27,77 @@ export class TvChannel extends LitElement {
       :host {
         display: inline-flex;
       }
-      .course-topic{
+      .wrapper {
+        background-color: #eeeeee;
+        width: 100%;
+        margin-bottom: 8px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px grey;
+        margin-right: 3px;
+        margin-left: 3px;
+        margin-top: 3px;
+        height: 50px;
         display: flex;
-        flex-direction: column;
-        max-height: 50px;
-        max-width: 200px;
-        padding: 8px;
-        margin-bottom: 10px;
-        line-height: 2px;
+        align-items: center;
+
+      }
+
+      h3 {
         font-size: 12px;
-        background-color: #da5d5d;
-        border-radius: 8px;
-        box-shadow: 2px 2px 2px 2px grey;
-        text-align: center;
+        align-items: center;
+        margin-left: 10px;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 10px;
+        font-weight: normal;
+      }
+
+      h2 {
+        font-size: 15px;
+        align-items: center;
+        margin-left: 10px;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 10px;
+        color: white;
+      }
+
+      .dot {
+        height: 25px;
+        width: 25px;
+        background-color: #3A3B3C;
+        border-radius: 50%;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+
+      @media (min-width: 800px) {
+        /* h3{
+          font-size: 18px;
+        }
+
+        h4 {
+          font-size: 15px;
+        } */
+
+      /* .wrapper{
+        max-width: auto;
+        max-height: auto;
+      } */
       }
     `;
   }
   // LitElement rendering template of your element
   render() {
     return html`
-      <div class="class-topic">
+      <div class="wrapper">
+        <span class="dot">
+          <h2>${this.id}</h2>
+        </span>
         <h3>${this.title}</h3>
-        <h4>${this.presenter}</h4>
         <slot></slot>
       </div>  
       `;
@@ -54,3 +105,14 @@ export class TvChannel extends LitElement {
 }
 // tell the browser about our tag and class it should run when it sees it
 customElements.define(TvChannel.tag, TvChannel);
+
+//         <h4>${this.presenter}</h4>
+
+// h4 {
+//   font-size: 12px;
+//   justify-content: center;
+//   margin-left: 10px;
+//   margin-bottom: 5px;
+//   margin-top: 5px;
+//   margin-right: 10px;
+// }
